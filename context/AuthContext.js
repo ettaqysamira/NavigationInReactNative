@@ -8,4 +8,6 @@ import { createContext, useState } from "react";
          <AuthContext.Provider value={{ user, login, logout }}>
              {children}
               </AuthContext.Provider> ); 
-              }
+
+        
+}

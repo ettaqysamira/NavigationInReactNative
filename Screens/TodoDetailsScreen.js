@@ -1,11 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
+import { useTodoStore } from "../store/useTodoStore";
 
-export default function TodoDetailsScreen({ route }) {
+export default function TodoDetailsScreen({ route, navigation }) {
     const { id, title } = route.params;
+    const { removeTodo } = useTodoStore();
+
+    const handleDelete = () => {
+        removeTodo(id);
+        navigation.goBack();
+    };
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.text}>ID : {id}</Text>
+            <View style={styles.buttonContainer}>
+                <Button title="Supprimer cette tâche" color="#ff3b30" onPress={handleDelete} />
+            </View>
         </View>
     );
 }
@@ -13,17 +24,15 @@ export default function TodoDetailsScreen({ route }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: '#fff',
+        padding: 20,
+        backgroundColor: "#fff",
     },
     title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        marginBottom: 10,
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 20,
     },
-    text: {
-        fontSize: 20,
-        color: '#666',
-    }
+    buttonContainer: {
+        marginTop: 10,
+    },
 });

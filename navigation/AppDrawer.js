@@ -1,6 +1,6 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import AppStack from "./AppStack";
-import ProfileScreen from "./Screens/ProfileScreen";
+import AppStack from "../AppStack";
+import ProfileScreen from "../Screens/ProfileScreen";
 
 const Drawer = createDrawerNavigator();
 
