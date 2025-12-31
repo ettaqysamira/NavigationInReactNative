@@ -1,3 +1,4 @@
+import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AppStack from "../AppStack";
 import ProfileScreen from "../Screens/ProfileScreen";
